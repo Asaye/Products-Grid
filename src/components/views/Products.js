@@ -9,11 +9,8 @@ class Products extends Component {
   state = {
     products: null,
     pages: []
-  }  
-
-  constructor(props) {
-    super(props);
-  }
+  } 
+  
   _getDate = (str) => {
      const date = new Date(str);
      const now = new Date();
@@ -22,6 +19,14 @@ class Products extends Component {
      else if (days === 1) return `${days} day ago`;
      else if (days < 7) return `${days} days ago`;
      else return `${date.getMonth() + 1}-${date.getDate() < 10 ? ("0"+date.getDate()) : date.getDate() }-${date.getFullYear()}`
+  }
+  _getNextAd = () => {
+      var nextAd = Math.floor(Math.random()*1000);
+      while (nextAd === this._prevAd) {
+         nextAd = Math.floor(Math.random()*1000);
+      }
+      this._prevAd = nextAd;
+      return nextAd;
   }
   componentDidMount() {
     Axios.get("http://localhost:3001/products").then((response) => {
@@ -37,43 +42,28 @@ class Products extends Component {
   render() {
     console.log(this.state.pages);
     return (
-      <div className="Container">{ this.state.products != null &&
+      <div>{ this.state.products != null &&
         this.state.pages.map((page, i) => 
-          <div>{this.state.products.slice(page, page + 5).map((item, index) =>
+          <div className="Container">{this.state.products.slice(page, page + 20).map((item, index) =>
             <div key = {index} className="Grid-item">
             <div className="Item-header">
               <div className="Product-price">${item.price}</div>
             </div>
             <div className="Product-face">{item.face}</div>
             <div className="Item-footer">
-              <div className="Product-id">
-                <span className="Product-labels">id: </span>{item.id}
-              </div>
-              <div className="Product-size">
-                <span className="Product-labels">size: </span>{item.size}
-              </div>
-              <div className="Product-date">{this._getDate(item.date)}</div>
+              <div>Size:</div>
+              <div>{item.size}</div>
+              <div>Posted:</div>
+              <div>{this._getDate(item.date)}</div>
+              <div>Id:</div>
+              <div>{item.id}</div>
             </div>
           </div>)}
-          <div className="Ad">Ad</div></div>
+          <div className="Ad">
+            <img className="ad" src={"http://localhost:3001/ads/?r=" +  this._getNextAd()}/>
+          </div>
+        </div>
         )
-        // this.state.products.map((item, index) => 
-        //   <div><div key = {index} className="Grid-item">
-        //     <div className="Item-header">
-        //       <div className="Product-price">${item.price}</div>
-        //     </div>
-        //     <div className="Product-face">{item.face}</div>
-        //     <div className="Item-footer">
-        //       <div className="Product-id">
-        //         <span className="Product-labels">id: </span>{item.id}
-        //       </div>
-        //       <div className="Product-size">
-        //         <span className="Product-labels">size: </span>{item.size}
-        //       </div>
-        //       <div className="Product-date">{this._getDate(item.date)}</div>
-        //     </div>
-        //   </div>
-        //   {(index+1)%20 === 0 && <div className="Ad"></div>}</div>)
       }</div>
     );
   }

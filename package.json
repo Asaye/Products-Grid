@@ -3,23 +3,15 @@
   "private": true,
   "version": "0.0.1",
   "description": "Build a grid of product items and ads",
-<<<<<<< HEAD
   "scripts": {
     "start": "react-scripts start json-server server/index.js --routes server/routes.json --middlewares server/handle-delay.js server/handle-ads.js",
     "test": "react-scripts test --env=jsdom",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
-=======
-  "main": "server/index.js",
-  "scripts": {
-    "start": "json-server server/index.js --routes server/routes.json --middlewares server/handle-delay.js server/handle-ads.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> f2d26758f926299454273a8ca87d67c9c57f18a4
   },
   "author": "",
   "license": "",
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.19.0",
     "cool-ascii-faces": "^1.3.4",
     "json-server": "^0.9.6",
@@ -41,9 +33,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-=======
-    "cool-ascii-faces": "^1.3.4",
-    "json-server": "^0.9.6"
->>>>>>> f2d26758f926299454273a8ca87d67c9c57f18a4
   }
 }
