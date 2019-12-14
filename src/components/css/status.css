@@ -1,17 +1,19 @@
 .Loading {
   font-size: 1.2em; 
   width: 100%; 
+  margin: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: #0099CC;
 }
 .Loading span {
   font-weight: bold;
   margin:2px;
-  background-color: #777;
   width: 5px;
   height: 5px;
+  margin-top: 10px;
   border-radius: 50%;
   vertical-align: bottom;
   -webkit-animation-name: example; 
@@ -31,11 +33,11 @@
   animation-delay: 0.75s;
 }
 @-webkit-keyframes example {
-  from {background-color: #777;}
+  from {background-color: #0099CC;}
   to {background-color: transparent;}
 }
 
 @keyframes example {
-  from {background-color: #777;}
+  from {background-color: #0099CC;}
   to {background-color: transparent;}
 }
