@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
 import querystring from 'querystring';
+import { createBrowserHistory as history } from 'history';
 import '../css/sort.css';
 
 const SORT_PARAMS = ["id", "price", "size"];
 
 class Sort extends Component {
-  state = {
-    sortBy: "",
-    showOptions: false
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      sortBy: "",
+      showOptions: false
+    };
   }
-
+  
   _sortBy = (type) => {
-    window.location.href = "/products?_sort=" + type;
-    this.setState({ sortBy: type, showOptions: false });
+    const loc = history().location;
+    var url = loc.pathname + loc.search;
+    var delim = "?";
+
+    if (url.indexOf("_sort=") < 0) {
+        if (url.indexOf("?") >= 0) {
+          delim = "&";
+        }
+        url = url + `${delim}_sort=${type}`;
+    } else {
+        url = url.replace(new RegExp("_sort=(id|price|size)"), `_sort=${type}`);
+    }
+
+    window.location.href = url;
+    this.setState({ 
+      sortBy: type, 
+      showOptions: false 
+    });
   }
 
   componentDidMount() {
     const search = window.location.search;
-    const type = querystring.parse(search)["?_sort"];
-    if (type !== undefined) {
-      this.setState({ sortBy: type });
+    if (search.indexOf("_sort") >= 0) {
+      var val = querystring.parse(search);
+      this.setState({ 
+        sortBy: val["_sort"] || val["?_sort"] 
+      });
     } 
   }
 

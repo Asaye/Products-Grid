@@ -3,6 +3,9 @@
 	grid-column-gap: 30px;
 	grid-row-gap: 30px;
 }
+a {
+	text-decoration: none;
+}
 .grid-item {
 	height: 250px;
 	display:flex;
