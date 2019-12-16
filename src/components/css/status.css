@@ -1,4 +1,4 @@
-.Loading {
+.loading {
   font-size: 1.2em; 
   width: 100%; 
   margin: 15px;
@@ -8,7 +8,7 @@
   align-items: center;
   color: #0099CC;
 }
-.Loading span {
+.loading span {
   font-weight: bold;
   margin:2px;
   width: 5px;
@@ -16,28 +16,28 @@
   margin-top: 10px;
   border-radius: 50%;
   vertical-align: bottom;
-  -webkit-animation-name: example; 
+  -webkit-animation-name: dots; 
   -webkit-animation-duration: 1s; 
-  animation-name: example;
+  animation-name: dots;
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
-.Loading span:nth-child(1) {
+.loading span:nth-child(1) {
   margin-left: 5px;
   animation-delay: 0.25s;
 }
-.Loading span:nth-child(2) {
+.loading span:nth-child(2) {
   animation-delay: 0.5s;
 }
-.Loading span:nth-child(3) {
+.loading span:nth-child(3) {
   animation-delay: 0.75s;
 }
-@-webkit-keyframes example {
+@-webkit-keyframes dots {
   from {background-color: #0099CC;}
   to {background-color: transparent;}
 }
 
-@keyframes example {
+@keyframes dots {
   from {background-color: #0099CC;}
   to {background-color: transparent;}
 }

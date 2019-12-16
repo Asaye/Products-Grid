@@ -32,7 +32,7 @@ class Products extends Component {
         });
         return;
       }
-      
+            
       const lastPage = this.state.lastPage;
       
       var products = this.state.products;
@@ -113,12 +113,7 @@ class Products extends Component {
   componentDidUpdate(prevProps, prevState) {
     var page = this.state.lastPage;
     if (prevState.lastPage === page) return;
-
-    const h1 = document.body.scrollHeight;
-    const h2 = document.documentElement.clientHeight;
-
     this._nextBatch = Axios.get("http://localhost:3001" + this._getUrl(page + 1));
-    if (h1 < h2) this._addRow();
   }
 
   render() {
@@ -132,7 +127,7 @@ class Products extends Component {
               { 
                 (this.state.products.length - page) >= 20 &&
                 <div className="ad">
-                  <img alt="" src={"/ads/?r=" +  this._getNextAd()}/>
+                  <img alt="" src={"http://localhost:3001/ads/?r=" +  this._getNextAd()}/>
                 </div>
               }
             </div>

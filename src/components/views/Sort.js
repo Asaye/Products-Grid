@@ -20,7 +20,7 @@ class Sort extends Component {
     var url = loc.pathname + loc.search;
     var delim = "?";
 
-    if (url.indexOf("_sort=") < 0) {
+    if (url.indexOf("_sort=") === -1) {
         if (url.indexOf("?") >= 0) {
           delim = "&";
         }

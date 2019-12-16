@@ -8,14 +8,20 @@
             <h1>Products Grid</h1>
             <p>Here you're sure to find a bargain on some of the finest ascii available to purchase. Be sure to peruse our selection of ascii faces in an exciting range of sizes and prices.</p>     
             <p>But first, a word from our sponsors:</p> 
-            <!-- <script>document.write('<img class="ad" src="http://localhost:3001/ads/?r=' + Math.floor(Math.random()*1000) + '"/>');</script> -->
+            <script>document.write('<img class="ad" src="http://localhost:3001/ads/?r=' + Math.floor(Math.random()*1000) + '"/>');</script>
         </header>
 
-        <section style="padding: 30px;margin:15px;background-color: #f5f5f5;border-radius: 5px;" class="products">
+        <section class="products">
             <div id = "sort"></div>
             <div id = "products"></div> 
-        </section>        
-        <!-- <script type="text/javascript" src="/bundle.js">  -->
-        </script>
+        </section>
+        <style>
+            .products {
+                padding: 30px;
+                margin:15px;
+                background-color: #f5f5f5;
+                border-radius: 5px;
+            }
+        </style>
     </body>
 </html>

@@ -4,7 +4,7 @@ import '../css/status.css';
 class Status extends Component {  
   render() {
     return (
-      <div className="Loading">loading
+      <div className="loading">loading
         <span></span>
         <span></span>
         <span></span>
