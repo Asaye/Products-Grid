@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Build a grid of product items and ads",
   "scripts": {
-    "start": "react-scripts start json-server server/index.js --routes server/routes.json --middlewares server/handle-delay.js server/handle-ads.js",
+    "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom"
   },
   "author": "",

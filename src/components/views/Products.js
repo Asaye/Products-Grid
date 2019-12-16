@@ -5,7 +5,7 @@ import Status from './Status';
 import Page from './Page';
 import '../css/products.css';
 
-const NUM_COLUMNS = 4;
+var NUM_COLUMNS = 20;
 
 class Products extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Products extends Component {
       endOfCatalogue: false,
       pages: []
     }; 
-    this._nextBatch = Axios.get(this._getUrl(1));
+    this._nextBatch = Axios.get("http://localhost:3001" + this._getUrl(1));
   }
   
   _addRow = () => {
@@ -53,7 +53,7 @@ class Products extends Component {
         }
       }
 
-      history().push(this._getUrl(lastPage));
+      history().push(this._getUrl(lastPage + 1));
       this.setState({
         products: products, 
         pages: pages, 
@@ -104,12 +104,12 @@ class Products extends Component {
       }, time);
     }
   }
-
+ 
   componentDidMount() {
-    window.onscroll = this._handleScroll;
+    window.onscroll = this._handleScroll;    
     this._addRow();
   }
-
+  
   componentDidUpdate(prevProps, prevState) {
     var page = this.state.lastPage;
     if (prevState.lastPage === page) return;
@@ -117,7 +117,7 @@ class Products extends Component {
     const h1 = document.body.scrollHeight;
     const h2 = document.documentElement.clientHeight;
 
-    this._nextBatch = Axios.get(this._getUrl(page + 1));
+    this._nextBatch = Axios.get("http://localhost:3001" + this._getUrl(page + 1));
     if (h1 < h2) this._addRow();
   }
 
@@ -127,8 +127,7 @@ class Products extends Component {
         { 
           this.state.products != null &&
           this.state.pages.map((page, i) => 
-            <div key={i} style={{gridTemplateColumns: `repeat(${NUM_COLUMNS}, 1fr)`}} 
-              className="products-container">
+            <div key={i} className="products-container">
               <Page products={this.state.products.slice(page, page + 20)}/>
               { 
                 (this.state.products.length - page) >= 20 &&
