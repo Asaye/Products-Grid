@@ -1,10 +1,10 @@
 # Products-Grid
-This is an ecommerce site, where you can buy all sorts of ascii faces.
+This is an ecommerce site where you can buy all sorts of ascii faces.
 
 # Instructions
-To run the code and to see the results in the browser, just double click the "start-react.bat" file
+To run the code and to see the results in a browser, just double click the "start-react.bat" file
 in the project directory. Starting the server and launching a browser to display the products will be
-handled authomatically. This is equivalent to:
+handled automatically. This is can also be achieved by:
     1. open two terminals
     2. change the directory on both terminals to the current directory
     3. run "npm start" on the first terminal
